@@ -6,6 +6,7 @@ import android.graphics.Matrix
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.os.Environment.*
 import android.util.Log
 import android.util.Rational
 import android.util.Size
@@ -32,7 +33,8 @@ val permissions = arrayOf(android.Manifest.permission.CAMERA,
 class MainActivity : AppCompatActivity() {
 
     private val filename = "test.png"
-    private val sd = Environment.getExternalStorageDirectory()
+//    private val sd = Environment.getExternalStorageDirectory()
+    private val sd = Environment.getExternalStoragePublicDirectory(DIRECTORY_PICTURES)
     private val dest = File(sd, filename)
     private var lensFacing = CameraX.LensFacing.BACK
     private var imageCapture: ImageCapture? = null
@@ -44,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewFinder = findViewById(R.id.view_finder)
+//        viewFinder = findViewById(R.id.view_finder)
         bindCamera()
 //        var fab_camera = findViewById(R.id.fab_camera)
 
