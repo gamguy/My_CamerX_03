@@ -1,0 +1,2 @@
+rootProject.name = "My CamerX 03"
+include ':app'
